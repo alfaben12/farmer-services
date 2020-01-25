@@ -11,3 +11,10 @@ func Get(l *[]FarmLand) (err error) {
 	}
 	return nil
 }
+
+func Create(l *FarmLand) (err error) {
+	if err = Config.DB.Create(l).Error; err != nil {
+		return err
+	}
+	return nil
+}
