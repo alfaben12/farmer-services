@@ -26,7 +26,7 @@ func auth(c *gin.Context) {
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
 		c.Set("accountid", claims["accountid"])
-		// c.JSON(http.StatusUnauthorized, claims["accountid"])
+		// c.JSON(http.StatusUnauthoriz ed, claims["accountid"])
 		c.Next()
 	} else {
 		result := gin.H{
