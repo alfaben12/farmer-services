@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"../Controllers/FarmLandController"
+	"../Modules/Land"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
@@ -43,8 +43,8 @@ func SetupRouter() *gin.Engine {
 
 	v1 := r.Group("/v1")
 	{
-		v1.GET("farmlands", auth, FarmLandController.ListLand)
-		v1.POST("farmlands", auth, FarmLandController.Create)
+		v1.GET("farmlands", auth, Land.ListLand)
+		v1.POST("farmlands", auth, Land.Create)
 	}
 
 	return r

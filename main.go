@@ -2,7 +2,7 @@ package main
 
 import (
 	"./app/Config"
-	"./app/Models/FarmLandModel"
+	"./app/Modules/Land"
 	"./app/Routers"
 	"fmt"
 	"github.com/jinzhu/gorm"
@@ -18,7 +18,7 @@ func main() {
 		fmt.Println("status: ", err)
 	}
 	defer Config.DB.Close()
-	Config.DB.AutoMigrate(&FarmLandModel.FarmLand{})
+	Config.DB.AutoMigrate(&Land.Land{})
 
 	r := Routers.SetupRouter()
 	// running

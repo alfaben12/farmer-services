@@ -1,15 +1,14 @@
-package FarmLandController
+package Land
 
 import (
 	"../../Helpers"
-	"../../Models/FarmLandModel"
 	"github.com/gin-gonic/gin"
 )
 
 func ListLand(c *gin.Context) {
-	var land []FarmLandModel.FarmLand
+	var land []Land
 
-	err := FarmLandModel.Get(&land)
+	err := Get(&land)
 	if err != nil {
 		Helpers.RespondJSON(c, 200, land)
 	} else {
@@ -18,10 +17,10 @@ func ListLand(c *gin.Context) {
 }
 
 func Create(c *gin.Context) {
-	var land FarmLandModel.FarmLand
+	var land Land
 	c.Bind(&land)
 	example := c.MustGet("accountid").(string)
-	err := FarmLandModel.Create(&land)
+	err := CreateData(&land)
 	if err != nil {
 		Helpers.RespondJSON(c, 200, example)
 	} else {

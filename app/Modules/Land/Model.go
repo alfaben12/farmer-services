@@ -1,18 +1,18 @@
-package FarmLandModel
+package Land
 
 import (
 	"../../Config"
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func Get(l *[]FarmLand) (err error) {
+func Get(l *[]Land) (err error) {
 	if err = Config.DB.Find(l).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-func Create(l *FarmLand) (err error) {
+func CreateData(l *Land) (err error) {
 	if err = Config.DB.Create(l).Error; err != nil {
 		return err
 	}
